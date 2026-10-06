@@ -1,0 +1,16 @@
+{
+  "outputDirectory": "./out",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "nodeVersion": "20.18.0",
+  "schedules": [
+    {
+      "name": "dnshe-sync",
+      "cron": "0 3 * * *",
+      "path": "/api/cron",
+      "method": "POST",
+      "payload": { "token": "REPLACE_WITH_CRON_TOKEN" },
+      "timezone": "Asia/Shanghai"
+    }
+  ]
+}

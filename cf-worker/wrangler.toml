@@ -1,0 +1,20 @@
+name = "dnshe-domain-manage-api"
+main = "index.ts"
+compatibility_date = "2024-11-01"
+
+[observability]
+enabled = true
+
+# KV 命名空间：先在控制台创建，再把 id 填到这里
+[[kv_namespaces]]
+binding = "DNSHE_KV"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+preview_id = "REPLACE_WITH_YOUR_KV_PREVIEW_ID"
+
+# 每 6 小时自动同步一次
+[triggers]
+crons = ["0 */6 * * *"]
+
+[vars]
+# 非敏感变量放这里；敏感变量用 `wrangler secret put JWT_SECRET` 等命令写入
+# DNSHE_API_BASE = "https://api005.dnshe.com/index.php?m=domain_hub"
